@@ -1,0 +1,53 @@
+# Machine Specific
+.DS_Store
+.AppleDouble
+.LSOverride
+UserInterfaceState.xcuserstate
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+.venv/
+
+# Ide's
+.vscode/
+.idea/
+
+# Executables
+bin/
+
+# C++
+*.slo
+*.lo
+*.o
+*.a
+*.la
+*.lai
+*.so
+*.so.*
+*.dll
+*.dylib
+.clangd
+compile_flags.txt
+
+# Python
+__pycache__/
+
+# Ionic Project
+.angular/cache/
+coverage/
+dist/
+hooks/
+log.txt
+*.log
+node_modules/
+npm-debug.log*
+platforms/
+temp/
+tmp/
+www/
+
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json
