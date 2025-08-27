@@ -9,45 +9,20 @@ ehthumbs.db
 ehthumbs_vista.db
 .venv/
 
-# Ide's
-.vscode/
-.idea/
+# Godot 4+ specific ignores
+.godot/
+.nomedia
 
-# Executables
-bin/
+# Godot-specific ignores
+.import/
+export.cfg
+export_credentials.cfg
+*.tmp
 
-# C++
-*.slo
-*.lo
-*.o
-*.a
-*.la
-*.lai
-*.so
-*.so.*
-*.dll
-*.dylib
-.clangd
-compile_flags.txt
+# Imported translations (automatically generated from CSV files)
+*.translation
 
-# Python
-__pycache__/
-
-# Ionic Project
-.angular/cache/
-coverage/
-dist/
-hooks/
-log.txt
-*.log
-node_modules/
-npm-debug.log*
-platforms/
-temp/
-tmp/
-www/
-
-# Firebase
-.firebase
-*-debug.log
-.runtimeconfig.json
+# Mono-specific ignores
+.mono/
+data_*/
+mono_crash.*.json
