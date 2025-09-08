@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d1x3q5j07e6wc"]
+[gd_scene load_steps=14 format=3 uid="uid://d1x3q5j07e6wc"]
 
 [ext_resource type="Texture2D" uid="uid://ogxbfy4fjpyb" path="res://Sprites/Spooky_bg.png" id="1_52fb6"]
 [ext_resource type="Texture2D" uid="uid://q13o1o3jbkvg" path="res://Sprites/Spooky_moon.png" id="2_mai8y"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://bcs8sa3wjcl82" path="res://Sprites/Spooky_trees1.png" id="8_gnsmo"]
 [ext_resource type="Texture2D" uid="uid://dr8neevu0mq3h" path="res://Sprites/Spooky_trees2.png" id="9_psl12"]
 [ext_resource type="Texture2D" uid="uid://bw3j0qyk54uyy" path="res://Sprites/Spooky_treeTops.png" id="10_2ebs2"]
+[ext_resource type="PackedScene" uid="uid://ddmcubcmtcg5g" path="res://Player.tscn" id="11_76v2p"]
+[ext_resource type="PackedScene" uid="uid://bgf2akvq5djcv" path="res://basic_platform.tscn" id="12_drdnd"]
+[ext_resource type="Script" uid="uid://b4b8vpovts0o6" path="res://Scripts/Player/PlayerConroller.gd" id="12_ioaeq"]
 
 [node name="MainScene" type="Node2D"]
 
@@ -52,3 +55,10 @@ texture = ExtResource("9_psl12")
 [node name="SpookyTreeTops" type="Sprite2D" parent="."]
 position = Vector2(950, -529)
 texture = ExtResource("10_2ebs2")
+
+[node name="Player" parent="." instance=ExtResource("11_76v2p")]
+position = Vector2(860, 540)
+script = ExtResource("12_ioaeq")
+
+[node name="Basic_Platform" parent="." instance=ExtResource("12_drdnd")]
+position = Vector2(874, 941)
