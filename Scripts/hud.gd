@@ -14,6 +14,7 @@ class QuotePair:
 		quote_string = q_str
 		quote_wav = q_wav
 
+var hasDied: bool = false
 var paused: bool = false
 var death_text: Array[QuotePair] = [
 	QuotePair.new("You've succumbed to the rat horde...",  preload("res://Sounds/you’ve succumbed to rat horde.wav")),
@@ -93,3 +94,10 @@ func _on_restart_button_pressed() -> void:
 	$PauseButton.text = "||"
 	$PauseButton.show()
 	restart_pressed.emit()
+
+# Activates when player touches rat body
+func _on_rat_horde_body_entered(body: Node2D) -> void:
+	# Makes it so it only runs once
+	if !hasDied:
+		show_game_over()
+	hasDied = true
