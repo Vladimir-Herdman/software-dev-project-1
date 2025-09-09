@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://bolfwqgeb84b2"]
+
+[ext_resource type="Texture2D" uid="uid://nqf8d5gt1g8u" path="res://Sprites/Spooky_mountains1.png" id="1_2qofk"]
+[ext_resource type="Texture2D" uid="uid://dbj7ly5gtgtrg" path="res://Sprites/Spooky_mountains2.png" id="2_c24xt"]
+[ext_resource type="Texture2D" uid="uid://cigaf4yf8rxmy" path="res://Sprites/Spooky_pines1.png" id="3_dil0r"]
+[ext_resource type="Texture2D" uid="uid://dio2l3432613j" path="res://Sprites/Spooky_pines2.png" id="4_qyfso"]
+[ext_resource type="Texture2D" uid="uid://dqoe85g4phmqs" path="res://Sprites/Spooky_pines3.png" id="5_a6njs"]
+[ext_resource type="Texture2D" uid="uid://bcs8sa3wjcl82" path="res://Sprites/Spooky_trees1.png" id="6_4p6ii"]
+[ext_resource type="Texture2D" uid="uid://dr8neevu0mq3h" path="res://Sprites/Spooky_trees2.png" id="7_168uk"]
+[ext_resource type="Texture2D" uid="uid://bw3j0qyk54uyy" path="res://Sprites/Spooky_treeTops.png" id="8_w4qwi"]
+
+[node name="Environment" type="Node2D"]
+
+[node name="SpookyMountains1" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_2qofk")
+
+[node name="SpookyMountains2" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_c24xt")
+
+[node name="SpookyPines1" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("3_dil0r")
+
+[node name="SpookyPines2" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("4_qyfso")
+
+[node name="SpookyPines3" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("5_a6njs")
+
+[node name="SpookyTrees1" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("6_4p6ii")
+
+[node name="SpookyTrees2" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("7_168uk")
+
+[node name="SpookyTreeTops" type="Sprite2D" parent="."]
+position = Vector2(950, -529)
+texture = ExtResource("8_w4qwi")

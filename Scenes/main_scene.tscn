@@ -1,17 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://d1x3q5j07e6wc"]
+[gd_scene load_steps=9 format=3 uid="uid://d1x3q5j07e6wc"]
 
 [ext_resource type="Texture2D" uid="uid://ogxbfy4fjpyb" path="res://Sprites/Spooky_bg.png" id="1_52fb6"]
 [ext_resource type="Texture2D" uid="uid://q13o1o3jbkvg" path="res://Sprites/Spooky_moon.png" id="2_mai8y"]
-[ext_resource type="Texture2D" uid="uid://nqf8d5gt1g8u" path="res://Sprites/Spooky_mountains1.png" id="3_76v2p"]
-[ext_resource type="Texture2D" uid="uid://dbj7ly5gtgtrg" path="res://Sprites/Spooky_mountains2.png" id="4_drdnd"]
-[ext_resource type="Texture2D" uid="uid://cigaf4yf8rxmy" path="res://Sprites/Spooky_pines1.png" id="5_ioaeq"]
-[ext_resource type="Texture2D" uid="uid://dio2l3432613j" path="res://Sprites/Spooky_pines2.png" id="6_7ewk0"]
-[ext_resource type="Texture2D" uid="uid://dqoe85g4phmqs" path="res://Sprites/Spooky_pines3.png" id="7_lhp3t"]
-[ext_resource type="Texture2D" uid="uid://bcs8sa3wjcl82" path="res://Sprites/Spooky_trees1.png" id="8_gnsmo"]
-[ext_resource type="Texture2D" uid="uid://dr8neevu0mq3h" path="res://Sprites/Spooky_trees2.png" id="9_psl12"]
-[ext_resource type="Texture2D" uid="uid://bw3j0qyk54uyy" path="res://Sprites/Spooky_treeTops.png" id="10_2ebs2"]
-[ext_resource type="PackedScene" uid="uid://ddmcubcmtcg5g" path="res://Player.tscn" id="11_76v2p"]
-[ext_resource type="PackedScene" uid="uid://bgf2akvq5djcv" path="res://basic_platform.tscn" id="12_drdnd"]
+[ext_resource type="PackedScene" uid="uid://bolfwqgeb84b2" path="res://Scenes/environment.tscn" id="6_6ev3c"]
+[ext_resource type="Script" uid="uid://di0x808i5hher" path="res://Scripts/PlatformManager.gd" id="7_huasi"]
+[ext_resource type="PackedScene" uid="uid://ojkwx5rcpphm" path="res://Scenes/bouncy_platform.tscn" id="8_m1efj"]
+[ext_resource type="PackedScene" uid="uid://ddmcubcmtcg5g" path="res://Scenes/Player.tscn" id="11_76v2p"]
+[ext_resource type="PackedScene" uid="uid://bgf2akvq5djcv" path="res://Scenes/basic_platform.tscn" id="12_drdnd"]
 [ext_resource type="Script" uid="uid://b4b8vpovts0o6" path="res://Scripts/Player/PlayerConroller.gd" id="12_ioaeq"]
 
 [node name="MainScene" type="Node2D"]
@@ -24,37 +19,7 @@ texture = ExtResource("1_52fb6")
 position = Vector2(960, 420)
 texture = ExtResource("2_mai8y")
 
-[node name="SpookyMountains1" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
-texture = ExtResource("3_76v2p")
-
-[node name="SpookyMountains2" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
-texture = ExtResource("4_drdnd")
-
-[node name="SpookyPines1" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
-texture = ExtResource("5_ioaeq")
-
-[node name="SpookyPines2" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
-texture = ExtResource("6_7ewk0")
-
-[node name="SpookyPines3" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
-texture = ExtResource("7_lhp3t")
-
-[node name="SpookyTrees1" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
-texture = ExtResource("8_gnsmo")
-
-[node name="SpookyTrees2" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
-texture = ExtResource("9_psl12")
-
-[node name="SpookyTreeTops" type="Sprite2D" parent="."]
-position = Vector2(950, -529)
-texture = ExtResource("10_2ebs2")
+[node name="Environment" parent="." instance=ExtResource("6_6ev3c")]
 
 [node name="Player" parent="." instance=ExtResource("11_76v2p")]
 position = Vector2(860, 540)
@@ -62,3 +27,8 @@ script = ExtResource("12_ioaeq")
 
 [node name="Basic_Platform" parent="." instance=ExtResource("12_drdnd")]
 position = Vector2(874, 941)
+
+[node name="PlatformManager" type="Node2D" parent="."]
+script = ExtResource("7_huasi")
+basicPlatform = ExtResource("12_drdnd")
+bouncyPlatform = ExtResource("8_m1efj")
