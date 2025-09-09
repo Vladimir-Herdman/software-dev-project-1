@@ -30,10 +30,9 @@ script = ExtResource("12_ioaeq")
 [node name="Basic_Platform" parent="." instance=ExtResource("12_drdnd")]
 position = Vector2(874, 941)
 
-[node name="PlatformManager" type="Node2D" parent="." node_paths=PackedStringArray("lastPlatform")]
+[node name="PlatformManager" type="Node2D" parent="."]
 script = ExtResource("7_huasi")
 basicPlatform = ExtResource("12_drdnd")
 bouncyPlatform = ExtResource("8_m1efj")
 movingPlatform = ExtResource("9_mai8y")
 fallingPlatform = ExtResource("10_76v2p")
-lastPlatform = NodePath("../Basic_Platform")

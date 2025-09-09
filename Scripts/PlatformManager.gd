@@ -4,43 +4,46 @@ extends Node
 @export var bouncyPlatform: PackedScene
 @export var movingPlatform: PackedScene
 @export var fallingPlatform: PackedScene
-@export var lastPlatform: Node2D
 
-@export var platformCount = []
+var lastPlatform: Node2D
+var platforms: Array = []
+const MAX_PLATFORMS: int = 7
 
-func spawnPlatform(platformType: String, position: Vector2) -> void:
+func spawn_platform(platform_type: String, position: Vector2) -> void:
 	var platform: Node2D
-	
-	match platformType:
+
+	match platform_type:
 		"basic":
 			platform = basicPlatform.instantiate()
-			lastPlatform = platform
-			platformCount.append(platform)
 		"bouncy":
 			platform = bouncyPlatform.instantiate()
-			lastPlatform = platform
-			#platformCount+=1
 		"moving":
 			platform = movingPlatform.instantiate()
-			lastPlatform = platform
-			#platformCount+=1/
-		"falling": 
+		"falling":
 			platform = fallingPlatform.instantiate()
 		_:
 			platform = basicPlatform.instantiate()
-			lastPlatform = platform
-			#platformCount+= 1
-
 	
 	platform.position = position
-	owner.add_child(platform)
+	add_child(platform)
+	platforms.append(platform)
+	lastPlatform = platform
 
-func _process(z: float) -> void:
 
-	while(platformCount.size() < 5):
-		var pos : Vector2
-		pos.x = randi_range(250,1250)
-		pos.y = randi_range(400,750)
-		pos.y -= lastPlatform.transform.y.length()
+func _process(_delta: float) -> void:
+	while platforms.size() < MAX_PLATFORMS:
+		var offset_x = randi_range(-800, 800)  
+		var offset_y = randi_range(-150, -200)
 		
-		spawnPlatform("basic", pos)
+		var pos: Vector2
+		if lastPlatform:
+			pos = lastPlatform.position + Vector2(offset_x, offset_y)
+		else:
+			pos = Vector2(600, 800)
+
+		spawn_platform("basic", pos)
+
+	for p in platforms:
+		if p.position.y > 1920:
+			platforms.erase(p)
+			p.queue_free()
