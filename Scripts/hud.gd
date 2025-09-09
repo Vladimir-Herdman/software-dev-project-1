@@ -76,9 +76,11 @@ func _on_start_button_pressed() -> void:
 
 func _on_pause_button_pressed() -> void:
 	if paused:
+		get_tree().paused = false
 		unpause.emit()
 		unshow_pause_screen()
 	else:
+		get_tree().paused = true
 		pause.emit()
 		show_pause_screen()
 		
@@ -89,7 +91,7 @@ func _on_settings_button_pressed() -> void:
 	show_settings()
 
 func _on_restart_button_pressed() -> void:
-	hide_huds_except_settings()
-	$PauseButton.text = "||"
-	$PauseButton.show()
-	restart_pressed.emit()
+	get_tree().paused = false
+	paused = false
+
+	get_tree().reload_current_scene()
