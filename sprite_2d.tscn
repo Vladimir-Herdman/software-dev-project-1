@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d26y1qf2ofo35"]
+
+[ext_resource type="Texture2D" uid="uid://b4f1wwsi5rpvu" path="res://Sprites/Rat_King-removebg-preview.png" id="1_f7cmv"]
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_f7cmv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

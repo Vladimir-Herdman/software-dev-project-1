@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcghsh5sdejp7"]
+
+[ext_resource type="Texture2D" uid="uid://ry2aiujqrvq6" path="res://Sprites/Spooky_Player.png" id="1_xhfnw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kpjcp"]
+radius = 35.0
+height = 166.0
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_kpjcp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(306, -149)
+texture = ExtResource("1_xhfnw")
