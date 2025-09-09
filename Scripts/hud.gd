@@ -71,7 +71,7 @@ func _on_start_button_pressed() -> void:
 	#TODO: insert start functionality, just testing right now
 	$PauseButton.show()
 	get_tree().call_group("hud_start", "hide")
-	show_game_over()
+	#show_game_over()
 	start_pressed.emit()
 
 func _on_pause_button_pressed() -> void:
