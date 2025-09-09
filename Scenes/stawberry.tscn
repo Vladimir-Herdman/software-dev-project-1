@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://jnfkt0t536wc"]
+
+[ext_resource type="Texture2D" uid="uid://chs0f4uemyi0k" path="res://Sprites/Stawberry.png" id="1_ijltp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1xvap"]
+radius = 19.0263
+
+[node name="RigidBody2D" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1xvap")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 4)
+texture = ExtResource("1_ijltp")
