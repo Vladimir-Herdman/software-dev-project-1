@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbockwhyaydtq"]
+[gd_scene load_steps=3 format=3 uid="uid://ojkwx5rcpphm"]
 
-[ext_resource type="Texture2D" uid="uid://i0pp57qxf5ms" path="res://Sprites/Spooky_Platform_1.png" id="1_g27h8"]
+[ext_resource type="Texture2D" uid="uid://i0pp57qxf5ms" path="res://Sprites/Spooky_Platform_1.png" id="1_s80op"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r8ipd"]
 size = Vector2(174, 47)
@@ -9,7 +9,7 @@ size = Vector2(174, 47)
 
 [node name="SpookyPlatform1" type="Sprite2D" parent="."]
 position = Vector2(-1, -35)
-texture = ExtResource("1_g27h8")
+texture = ExtResource("1_s80op")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 5.5)

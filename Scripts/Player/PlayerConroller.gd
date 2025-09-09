@@ -5,6 +5,7 @@ const JUMP_FORCE := -900.0   # negative = upward in Godot
 var speed = 50
 var deceleration = 6
 var maxXVelocity = 1500
+# Max height ~20000
 
 func _physics_process(delta: float) -> void:
 	velocity.y += GRAVITY
