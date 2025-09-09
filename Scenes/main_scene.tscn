@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://d1x3q5j07e6wc"]
+[gd_scene load_steps=18 format=4 uid="uid://d1x3q5j07e6wc"]
 
 [ext_resource type="Texture2D" uid="uid://ogxbfy4fjpyb" path="res://Sprites/Spooky_bg.png" id="1_52fb6"]
 [ext_resource type="Script" uid="uid://ddninxnlbicfy" path="res://Scripts/main_scene.gd" id="1_drdnd"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dr8neevu0mq3h" path="res://Sprites/Spooky_trees2.png" id="9_psl12"]
 [ext_resource type="Texture2D" uid="uid://bw3j0qyk54uyy" path="res://Sprites/Spooky_treeTops.png" id="10_2ebs2"]
 [ext_resource type="PackedScene" uid="uid://2eiw04oftrso" path="res://Scenes/hud.tscn" id="11_76v2p"]
+[ext_resource type="AudioStream" uid="uid://66lxwurqag1v" path="res://Sounds/eat.wav" id="12_7ewk0"]
 [ext_resource type="AudioStream" uid="uid://coaoi5nd4rbb5" path="res://Sounds/gameover.wav" id="12_ioaeq"]
 
 [sub_resource type="OggPacketSequence" id="OggPacketSequence_002x3"]
@@ -22,6 +23,13 @@ sampling_rate = 44100.0
 [sub_resource type="AudioStreamOggVorbis" id="AudioStreamOggVorbis_ioaeq"]
 packet_sequence = SubResource("OggPacketSequence_002x3")
 loop = true
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7ewk0"]
+playback_mode = 1
+random_pitch = 4.0
+random_volume_offset_db = 10.7
+streams_count = 1
+stream_0/stream = ExtResource("12_7ewk0")
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_drdnd")
@@ -69,6 +77,10 @@ texture = ExtResource("10_2ebs2")
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamOggVorbis_ioaeq")
 
+[node name="EatStrawberrySound" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_7ewk0")
+volume_db = 24.0
+
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_ioaeq")
 volume_db = 15.848
@@ -77,7 +89,6 @@ volume_db = 15.848
 
 [connection signal="pause" from="Hud" to="." method="pause_game"]
 [connection signal="restart_pressed" from="Hud" to="." method="restart_game"]
-[connection signal="settings_closed" from="Hud" to="." method="settings_closed"]
 [connection signal="settings_open" from="Hud" to="." method="settings_open"]
 [connection signal="start_pressed" from="Hud" to="." method="new_game"]
 [connection signal="unpause" from="Hud" to="." method="unpause_game"]

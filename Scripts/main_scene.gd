@@ -1,8 +1,10 @@
 extends Node2D
 
 var music_playing: bool = true
+@onready var hud_settings = $Hud/SettingsHud
 
 func _ready() -> void:
+	hud_settings.connect("settings_closed", Callable(self, "settings_closed"))
 	$Music.play()
 
 func new_game() -> void:
@@ -21,13 +23,18 @@ func game_over() -> void:
 	$DeathSound.play()
 
 func settings_open() -> void:
-	$Music.stop(); music_playing = false
+	print(GLOBAL.checkbox_deathsound_mute)
 
 func settings_closed() -> void:
-	$Music.play(); music_playing = true
+	pass
 
 func pause_game() -> void:
 	$Music.stop(); music_playing = false
 
 func unpause_game() -> void:
 	$Music.play(); music_playing = true
+
+#TODO: connect to strawberry eaten signal to play
+func play_strawberry_sound():
+	$Music.stop()
+	$EatStrawberrySound.play()

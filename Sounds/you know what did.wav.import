@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dfsveqjby2mvl"
+path="res://.godot/imported/you know what did.wav-b61b8f7d7b25fa63badd1cb25f1d7684.sample"
+
+[deps]
+
+source_file="res://Sounds/you know what did.wav"
+dest_files=["res://.godot/imported/you know what did.wav-b61b8f7d7b25fa63badd1cb25f1d7684.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
