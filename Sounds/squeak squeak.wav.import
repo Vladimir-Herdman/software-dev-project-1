@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bpvouwuflk71y"
+path="res://.godot/imported/squeak squeak.wav-e4d4a1c140a2ad11e1d4da6fde5a9423.sample"
+
+[deps]
+
+source_file="res://Sounds/squeak squeak.wav"
+dest_files=["res://.godot/imported/squeak squeak.wav-e4d4a1c140a2ad11e1d4da6fde5a9423.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
