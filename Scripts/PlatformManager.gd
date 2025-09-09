@@ -6,7 +6,7 @@ extends Node
 @export var fallingPlatform: PackedScene
 @export var lastPlatform: Node2D
 
-@export var platformCount : int = 1
+@export var platformCount = []
 
 func spawnPlatform(platformType: String, position: Vector2) -> void:
 	var platform: Node2D
@@ -15,21 +15,21 @@ func spawnPlatform(platformType: String, position: Vector2) -> void:
 		"basic":
 			platform = basicPlatform.instantiate()
 			lastPlatform = platform
-			platformCount += 1
+			platformCount.append(platform)
 		"bouncy":
 			platform = bouncyPlatform.instantiate()
 			lastPlatform = platform
-			platformCount+=1
+			#platformCount+=1
 		"moving":
 			platform = movingPlatform.instantiate()
 			lastPlatform = platform
-			platformCount+=1
+			#platformCount+=1/
 		"falling": 
 			platform = fallingPlatform.instantiate()
 		_:
 			platform = basicPlatform.instantiate()
 			lastPlatform = platform
-			platformCount+= 1
+			#platformCount+= 1
 
 	
 	platform.position = position
@@ -37,7 +37,7 @@ func spawnPlatform(platformType: String, position: Vector2) -> void:
 
 func _process(z: float) -> void:
 
-	while(platformCount < 5):
+	while(platformCount.size() < 5):
 		var pos : Vector2
 		pos.x = randi_range(250,1250)
 		pos.y = randi_range(400,750)
