@@ -9,6 +9,7 @@ extends Node
 var lastPlatform: Node2D
 var platforms: Array = []
 const MAX_PLATFORMS: int = 7
+var platformCount: int = 0;
 
 func spawn_platform(platform_type: String, position: Vector2) -> void:
 	var platform: Node2D
@@ -18,6 +19,7 @@ func spawn_platform(platform_type: String, position: Vector2) -> void:
 		"basic":
 			platform = basicPlatform.instantiate()
 			berry = stawberry.instantiate()
+			platformCount += 1
 		"bouncy":
 			platform = bouncyPlatform.instantiate()
 		"moving":
@@ -36,7 +38,8 @@ func spawn_platform(platform_type: String, position: Vector2) -> void:
 	
 
 func _process(_delta: float) -> void:
-	while platforms.size() < MAX_PLATFORMS:
+	print(platforms.size())
+	while platformCount < MAX_PLATFORMS:
 		var offset_x = randi_range(-800, 800)  
 		var offset_y = randi_range(-150, -200)
 		
@@ -47,3 +50,7 @@ func _process(_delta: float) -> void:
 			pos = Vector2(600, 800)
 
 		spawn_platform("basic", pos)
+
+
+func _on_rat_horde_platform_destroy() -> void:
+	platformCount -= 1

@@ -45,8 +45,10 @@ func unpause_game() -> void:
 
 #TODO: connect to strawberry eaten signal to play
 func play_strawberry_sound() -> void:
+	var temp = $Music.get_playback_position()
 	$Music.stop()
 	$EatStrawberrySound.play()
+	$Music.play(temp)
 
 func mute_music() -> void:
 	$Music.volume_db = -80
@@ -60,3 +62,7 @@ func mute_deathsound() -> void:
 	
 func unmute_deathsound() -> void:
 	$DeathSound.volume_db = 0
+
+
+func _on_player_collected_strawberry() -> void:
+	play_strawberry_sound()
