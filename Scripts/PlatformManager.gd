@@ -56,7 +56,6 @@ func spawn_platform(platform_type: String, position: Vector2) -> void:
 func _process(_delta: float) -> void:
 	
 	if timer < 0.1:
-		print("Making a platform")
 		var offset_x = randi_range(-800, 800)  
 		var offset_y = randi_range(-150, -200)
 		
@@ -71,7 +70,6 @@ func _process(_delta: float) -> void:
 	else:
 		
 		timer -= _delta
-		print("changin timer " + str(timer))
 
 
 func _on_rat_horde_platform_destroy() -> void:

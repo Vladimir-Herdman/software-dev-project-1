@@ -11,6 +11,7 @@ func _ready() -> void:
 	hud_settings.connect("deathsound_muted", Callable(self, "mute_deathsound"))
 	hud_settings.connect("deathsound_unmuted", Callable(self, "unmute_deathsound"))
 	$Hud.connect("died", Callable(self, "game_over"))
+	$Rat_Horde/RatSounds.play()
 	$Camera2D/Music.play()
 
 func new_game() -> void:
