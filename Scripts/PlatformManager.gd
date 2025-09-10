@@ -47,7 +47,3 @@ func _process(_delta: float) -> void:
 			pos = Vector2(600, 800)
 
 		spawn_platform("basic", pos)
-	for p in platforms:
-		if p.position.y > 1920:
-			platforms.erase(p)
-			p.queue_free()
