@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://d1x3q5j07e6wc"]
+[gd_scene load_steps=21 format=4 uid="uid://d1x3q5j07e6wc"]
 
 [ext_resource type="Texture2D" uid="uid://ogxbfy4fjpyb" path="res://Sprites/Spooky_bg.png" id="1_52fb6"]
 [ext_resource type="Script" uid="uid://ddninxnlbicfy" path="res://Scripts/main_scene.gd" id="1_drdnd"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://jnfkt0t536wc" path="res://Scenes/stawberry.tscn" id="13_ioaec"]
 [ext_resource type="PackedScene" uid="uid://dedj6pc23qi38" path="res://Scenes/rat_horde.tscn" id="13_ioaeq"]
 [ext_resource type="Script" uid="uid://xp2opugja2xe" path="res://Scripts/CameraFollow.gd" id="14_7ewk0"]
+[ext_resource type="AudioStream" uid="uid://wedafvk2mf04" path="res://Sounds/boing.wav" id="16_gnsmo"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7ewk0"]
 playback_mode = 1
@@ -31,6 +32,11 @@ sampling_rate = 44100.0
 [sub_resource type="AudioStreamOggVorbis" id="AudioStreamOggVorbis_ioaeq"]
 packet_sequence = SubResource("OggPacketSequence_002x3")
 loop = true
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_psl12"]
+random_pitch = 1.37
+streams_count = 1
+stream_0/stream = ExtResource("16_gnsmo")
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_drdnd")
@@ -85,8 +91,14 @@ z_index = -10
 position = Vector2(960, 0)
 texture = ExtResource("1_52fb6")
 
+[node name="BoingSound" type="AudioStreamPlayer2D" parent="Camera2D"]
+stream = SubResource("AudioStreamRandomizer_psl12")
+volume_db = 13.371
+pitch_scale = 0.96
+
 [connection signal="CollectedStrawberry" from="Player" to="." method="_on_player_collected_strawberry"]
 [connection signal="CollectedStrawberry" from="Player" to="Hud" method="_on_player_collected_strawberry"]
+[connection signal="boing" from="Player" to="." method="_on_player_boing"]
 [connection signal="pause" from="Hud" to="." method="pause_game"]
 [connection signal="restart_pressed" from="Hud" to="." method="restart_game"]
 [connection signal="settings_open" from="Hud" to="." method="settings_open"]

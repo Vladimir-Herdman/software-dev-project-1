@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal CollectedStrawberry
+signal boing
 
 const GRAVITY := 20.0
 const JUMP_FORCE := -900.0   # negative = upward in Godot
@@ -36,6 +37,7 @@ func _physics_process(delta: float) -> void:
 
 	if is_on_floor() and velocity.y > 0:
 		velocity.y = JUMP_FORCE
+		boing.emit()
 
 	move_and_slide()
 

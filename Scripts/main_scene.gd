@@ -4,6 +4,7 @@ var music_playing: bool = true
 @onready var hud_settings = $Hud/SettingsHud
 
 func _ready() -> void:
+	randomize() #seed random values used throughout
 	hud_settings.connect("settings_closed", Callable(self, "settings_closed"))
 	hud_settings.connect("music_muted", Callable(self, "mute_music"))
 	hud_settings.connect("music_unmuted", Callable(self, "unmute_music"))
@@ -62,6 +63,9 @@ func mute_deathsound() -> void:
 func unmute_deathsound() -> void:
 	$Camera2D/DeathSound.volume_db = 0
 
-
 func _on_player_collected_strawberry() -> void:
 	play_strawberry_sound()
+
+func _on_player_boing() -> void:
+	if (randi() % 10 <= 5): #randi()%n --> 0 through n exclusive
+		$Camera2D/BoingSound.play()
