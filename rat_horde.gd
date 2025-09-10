@@ -19,10 +19,10 @@ func _on_hud_start_pressed() -> void:
 
 func _on_destructor_body_entered(body: Node2D) -> void:
 	body.queue_free()
-	#print("freed something")
+	print("freed something")
 
 
 func _on_destructor_area_entered(area: Area2D) -> void:
 	area.owner.queue_free()
 	platformDestroy.emit()
-	#print("freed something")
+	print("freed something")

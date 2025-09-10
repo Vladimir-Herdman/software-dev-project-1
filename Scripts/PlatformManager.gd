@@ -7,7 +7,6 @@ extends Node
 @export var stawberry: PackedScene
 
 var lastPlatform: Node2D
-var platforms: Array = []
 const MAX_PLATFORMS: int = 7
 var platformCount: int = 0;
 
@@ -33,12 +32,10 @@ func spawn_platform(platform_type: String, position: Vector2) -> void:
 	#berry.position = position
 	add_child(platform)
 	platform.add_child(berry)
-	platforms.append(platform)
 	lastPlatform = platform
 	
 
 func _process(_delta: float) -> void:
-	print(platforms.size())
 	while platformCount < MAX_PLATFORMS:
 		var offset_x = randi_range(-800, 800)  
 		var offset_y = randi_range(-150, -200)
