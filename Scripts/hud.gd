@@ -5,6 +5,7 @@ signal restart_pressed
 signal settings_open #signal that settings button pressed
 signal pause #TODO: freeze game somewhere
 signal unpause
+signal died
 
 var score : int = 0;
 
@@ -104,6 +105,7 @@ func _on_rat_horde_body_entered(body: Node2D) -> void:
 	# Makes it so it only runs once
 	if !hasDied:
 		show_game_over()
+		died.emit()
 	hasDied = true
 
 func _on_player_collected_strawberry() -> void:
