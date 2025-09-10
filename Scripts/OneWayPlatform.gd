@@ -11,9 +11,5 @@ func _process(_delta: float) -> void:
 	
 	if player.global_position.y < global_position.y - yOffset:
 		collider.disabled = false
-		print("Player global position:", player.global_position.y)
-		print("Platform position:", global_position.y)
 	else:
 		collider.disabled = true
-		print("Player global position:", player.global_position.y)
-		print("Platform position:", global_position.y)
