@@ -53,9 +53,6 @@ position = Vector2(960, 540)
 [node name="Basic_Platform" parent="." instance=ExtResource("12_drdnd")]
 position = Vector2(961, 922)
 
-[node name="Basic_Platform2" parent="." instance=ExtResource("12_drdnd")]
-position = Vector2(831, 575)
-
 [node name="Hud" parent="." instance=ExtResource("11_76v2b")]
 process_mode = 3
 
