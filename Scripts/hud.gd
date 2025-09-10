@@ -6,6 +6,8 @@ signal settings_open #signal that settings button pressed
 signal pause #TODO: freeze game somewhere
 signal unpause
 
+var score : int = 0;
+
 class QuotePair:
 	var quote_string: String
 	var quote_wav: AudioStream
@@ -64,7 +66,7 @@ func hide_settings() -> void:
 	$ScoreLabel.show()
 	
 func update_score(score: int) -> void:
-	$ScoreLabel.text = str(score)
+	$ScoreLabel.text = "Score: " + str(score)
 
 #signal based functions on their namesakes
 func _on_start_button_pressed() -> void:
@@ -93,3 +95,8 @@ func _on_restart_button_pressed() -> void:
 	$PauseButton.text = "||"
 	$PauseButton.show()
 	restart_pressed.emit()
+
+
+func _on_player_collected_strawberry() -> void:
+	score += 1
+	update_score(score)
