@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://d1x3q5j07e6wc"]
+[gd_scene load_steps=18 format=4 uid="uid://d1x3q5j07e6wc"]
 
 [ext_resource type="Texture2D" uid="uid://ogxbfy4fjpyb" path="res://Sprites/Spooky_bg.png" id="1_52fb6"]
 [ext_resource type="Script" uid="uid://ddninxnlbicfy" path="res://Scripts/main_scene.gd" id="1_drdnd"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ddmcubcmtcg5g" path="res://Scenes/Player.tscn" id="11_76v2p"]
 [ext_resource type="AudioStream" uid="uid://66lxwurqag1v" path="res://Sounds/eat.wav" id="12_7ewk0"]
 [ext_resource type="PackedScene" uid="uid://bgf2akvq5djcv" path="res://Scenes/basic_platform.tscn" id="12_drdnd"]
+[ext_resource type="PackedScene" uid="uid://jnfkt0t536wc" path="res://Scenes/stawberry.tscn" id="13_ioaec"]
 [ext_resource type="PackedScene" uid="uid://dedj6pc23qi38" path="res://Scenes/rat_horde.tscn" id="13_ioaeq"]
 
 [sub_resource type="OggPacketSequence" id="OggPacketSequence_002x3"]
@@ -71,11 +72,13 @@ basicPlatform = ExtResource("12_drdnd")
 bouncyPlatform = ExtResource("8_m1efj")
 movingPlatform = ExtResource("9_mai8y")
 fallingPlatform = ExtResource("10_76v2p")
+stawberry = ExtResource("13_ioaec")
 
 [node name="Rat_Horde" parent="." instance=ExtResource("13_ioaeq")]
 position = Vector2(928, 6507)
 scale = Vector2(3.92, 22.585)
 
+[connection signal="CollectedStrawberry" from="Player" to="Hud" method="_on_player_collected_strawberry"]
 [connection signal="pause" from="Hud" to="." method="pause_game"]
 [connection signal="restart_pressed" from="Hud" to="." method="restart_game"]
 [connection signal="settings_open" from="Hud" to="." method="settings_open"]

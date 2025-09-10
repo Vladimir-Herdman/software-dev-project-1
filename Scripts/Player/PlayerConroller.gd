@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal CollectedStrawberry
+
 const GRAVITY := 20.0
 const JUMP_FORCE := -900.0   # negative = upward in Godot
 var speed = 50
@@ -36,3 +38,9 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_FORCE
 
 	move_and_slide()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("collect")
+	body.queue_free()
+	CollectedStrawberry.emit()
